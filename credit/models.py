@@ -9,7 +9,7 @@ class UserCredit(TimeStampedModel):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="credit"
     )
-    Credit = models.PositiveIntegerField(default=0)
+    credit = models.PositiveIntegerField(default=0)
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_user_credit(sender, instance, created, **kwargs):
