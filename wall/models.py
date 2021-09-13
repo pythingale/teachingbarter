@@ -3,8 +3,9 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_extensions.db.models import TimeStampedModel
-from skills.models import Skill
 from stdimage import StdImageField
+
+from skills.models import Skill
 
 
 class UserWall(TimeStampedModel):

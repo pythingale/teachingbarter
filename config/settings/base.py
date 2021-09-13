@@ -76,7 +76,13 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "teachingbarter.users.apps.UsersConfig",
-    # Your stuff: custom apps go here
+    "message_box",
+    "reports",
+    "skills",
+    "wall",
+    "comments",
+    "ranks",
+    "credit",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -311,3 +317,10 @@ REST_FRAMEWORK = {
 CORS_URLS_REGEX = r"^/api/.*$"
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "pythingale@gmail.com"
+EMAIL_HOST_PASSWORD = "gzwwjxkiflzuhvzm"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "pythingale@gmail.com"

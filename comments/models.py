@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_extensions.db.models import TimeStampedModel
+
 from wall.models import UserWall
 
 
