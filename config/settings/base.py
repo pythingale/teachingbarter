@@ -342,8 +342,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "pythingale@gmail.com"
 
+
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=500),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": True,
@@ -372,4 +373,6 @@ DJOSER = {
     "USER_CREATE_PASSWORD_RETYPE": True,
     "SEND_ACTIVATION_EMAIL": False,
     "SERIALIZERS": {},
+    "PASSWORD_RESET_CONFIRM_URL": "dj-auth/users/me",
+    "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
 }
