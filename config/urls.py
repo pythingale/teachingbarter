@@ -9,10 +9,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from skills.views import SkillTypeViewSet
+from skills.views import SkillTypeViewSet, SkillViewSet
 
 router = DefaultRouter()
-router.register(r"api/skill", SkillTypeViewSet, basename="skill_type")
+router.register(r"api/skill-type", SkillTypeViewSet, basename="skill_type")
+router.register(r"api/skill", SkillViewSet, basename="skill")
 
 
 urlpatterns = [
