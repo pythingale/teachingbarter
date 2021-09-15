@@ -6,7 +6,14 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from skills.views import SkillTypeViewSet
+
+router = DefaultRouter()
+router.register(r"api/skill", SkillTypeViewSet, basename="skill_type")
+
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -35,6 +42,9 @@ urlpatterns += [
     path("auth-token/", obtain_auth_token),
     path("oauth/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
+
+urlpatterns += router.urls
+
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

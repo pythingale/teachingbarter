@@ -1,16 +1,18 @@
-from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_extensions.db.models import TimeStampedModel
 
+User = get_user_model()
+
 
 class MessageBox(TimeStampedModel):
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="message_box"
+        User, on_delete=models.CASCADE, related_name="message_box"
     )
 
-    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+    @receiver(post_save, sender=User)
     def create_message_box(sender, instance, created, **kwargs):
         if created:
             MessageBox.objects.create(user=instance)
@@ -22,7 +24,7 @@ class MessageBox(TimeStampedModel):
 class Message(TimeStampedModel):
     message = models.CharField(max_length=150)
     sender = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
+        User,
         on_delete=models.CASCADE,
         related_name="message_sender",
     )

@@ -1,4 +1,4 @@
-from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models import Avg
 from django.db.models.signals import post_save
@@ -6,6 +6,8 @@ from django.dispatch import receiver
 from django_extensions.db.models import TimeStampedModel
 
 from wall.models import UserWall
+
+User = get_user_model()
 
 
 class WallRank(TimeStampedModel):
@@ -29,7 +31,7 @@ class VotedRank(TimeStampedModel):
         WallRank, on_delete=models.CASCADE, related_name="comment"
     )
     voter = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
+        User,
         on_delete=models.CASCADE,
         related_name="rank_voter",
     )
