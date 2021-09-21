@@ -14,7 +14,7 @@ class WallRank(TimeStampedModel):
     wall = models.OneToOneField(
         UserWall, on_delete=models.CASCADE, related_name="wall_rank"
     )
-    rank_nmubers = models.PositiveSmallIntegerField(blank=True, null=True)
+    rank = models.FloatField(blank=True, null=True)
     voters = models.PositiveIntegerField(default=0)
 
     @receiver(post_save, sender=UserWall)
@@ -28,7 +28,7 @@ class WallRank(TimeStampedModel):
 
 class VotedRank(TimeStampedModel):
     wall_rank = models.ForeignKey(
-        WallRank, on_delete=models.CASCADE, related_name="comment"
+        WallRank, on_delete=models.CASCADE, related_name="voted_rank"
     )
     voter = models.OneToOneField(
         User,
