@@ -24,6 +24,15 @@ class UserWall(TimeStampedModel):
         delete_orphans=True,
     )
 
+    def get_rank(self):
+        return self.wall_rank.rank
+
+    def get_vote_numbers(self):
+        return self.wall_rank.voters
+
+    def get_voters(self):
+        return self.wall_rank.votedrank.all()
+
     @receiver(post_save, sender=User)
     def create_user_wall(sender, instance, created, **kwargs):
         if created:

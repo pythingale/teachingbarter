@@ -32,8 +32,8 @@ class SkillViewSet(viewsets.ModelViewSet):
     serializer_class = SkillSerializer
 
     def list(self, request, *args, **kwargs):
-        if request.GET.get("type"):
-            queryset = Skill.objects.filter(skill_type=request.GET["type"])
+        if request.query_params.get("type"):
+            queryset = Skill.objects.filter(skill_type=request.query_params["type"])
         else:
             queryset = Skill.objects.all()
         serializer = SkillSerializer(queryset, many=True)

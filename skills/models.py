@@ -16,6 +16,7 @@ class Skill(TimeStampedModel):
     skill_type = models.ForeignKey(SkillType, on_delete=models.CASCADE)
     skill = models.CharField(max_length=24)
 
+    @property
     def get_teachers(self):
         teachers = self.userwall_set.all()
         return teachers

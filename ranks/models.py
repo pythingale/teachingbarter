@@ -28,7 +28,7 @@ class WallRank(TimeStampedModel):
 
 class VotedRank(TimeStampedModel):
     wall_rank = models.ForeignKey(
-        WallRank, on_delete=models.CASCADE, related_name="voted_rank"
+        WallRank, on_delete=models.CASCADE, related_name="votedrank"
     )
     voter = models.OneToOneField(
         User,

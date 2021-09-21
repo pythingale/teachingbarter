@@ -13,3 +13,9 @@ class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
         fields = ["id", "skill_type", "skill"]
+
+
+class SkillDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skill
+        fields = ["id", "skill_type", "skill", "get_techers"]
