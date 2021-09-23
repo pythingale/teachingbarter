@@ -24,6 +24,9 @@ class UserWall(TimeStampedModel):
         delete_orphans=True,
     )
 
+    def get_username(self):
+        return self.user.username
+
     def get_rank(self):
         return self.wall_rank.rank
 

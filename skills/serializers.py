@@ -20,4 +20,4 @@ class SkillSerializer(serializers.ModelSerializer):
 class SkillTeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserWall
-        fields = ["id", "user", "get_rank", "avatar"]
+        fields = ["id", "user", "get_username", "get_rank", "avatar"]
