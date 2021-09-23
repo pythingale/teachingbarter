@@ -3,7 +3,7 @@ from django_extensions.db.models import TimeStampedModel
 
 
 class SkillType(TimeStampedModel):
-    type = models.CharField(max_length=24)
+    type = models.CharField(max_length=24, unique=True)
 
     class Meta:
         ordering = ["type"]
@@ -14,7 +14,7 @@ class SkillType(TimeStampedModel):
 
 class Skill(TimeStampedModel):
     skill_type = models.ForeignKey(SkillType, on_delete=models.CASCADE)
-    skill = models.CharField(max_length=24)
+    skill = models.CharField(max_length=24, unique=True)
 
     @property
     def get_teachers(self):

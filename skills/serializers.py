@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from wall.models import UserWall
+
 from .models import Skill, SkillType
 
 
@@ -15,7 +17,7 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = ["id", "skill_type", "skill"]
 
 
-class SkillDetailSerializer(serializers.ModelSerializer):
+class SkillTeacherSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Skill
-        fields = ["id", "skill_type", "skill", "get_techers"]
+        model = UserWall
+        fields = ["id", "user", "get_rank", "avatar"]
