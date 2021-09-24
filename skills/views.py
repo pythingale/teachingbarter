@@ -7,6 +7,9 @@ from rest_framework.response import Response
 from .models import Skill, SkillType
 from .serializers import SkillSerializer, SkillTeacherSerializer, SkillTypeSerializer
 
+# from rest_framework.filters import OrderingFilter
+
+
 User = get_user_model()
 
 
