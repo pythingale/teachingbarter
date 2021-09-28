@@ -10,10 +10,15 @@ from skills.models import Skill
 User = get_user_model()
 
 
+class Language(TimeStampedModel):
+    Language = models.CharField(max_length=24, unique=True, default="English")
+
+
 class UserWall(TimeStampedModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="wall")
     description = models.CharField(default="", max_length=300)
     skills = models.ManyToManyField(Skill)
+    language = models.ManyToManyField(Language)
     avatar = StdImageField(
         upload_to="./media/image/cover",
         blank=True,
