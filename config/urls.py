@@ -9,11 +9,14 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+from credit.views import TransactionViewSet, UserCreditViewSet
 from skills.views import SkillTypeViewSet, SkillViewSet
 
 router = DefaultRouter()
 router.register(r"api/skill-type", SkillTypeViewSet, basename="skill_type")
 router.register(r"api/skill", SkillViewSet, basename="skill")
+router.register(r"api/user-credit", UserCreditViewSet, basename="user-credit")
+router.register(r"api/transaction", TransactionViewSet, basename="transaction")
 
 
 urlpatterns = [
